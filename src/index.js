@@ -25,10 +25,10 @@ function click(event){
 
     if (event.target.className == "cell"){
         if(way%2 == 0){
-            event.target.className = "cell ch";
+            event.target.className = "cell r";
         }
         else{
-            event.target.className = "cell r"
+            event.target.className = "cell ch"
         }
         way++;
         take_step.push({class:event.target.className,id:event.target.id});
@@ -82,7 +82,7 @@ function gameFinish(name) {
     a.forEach(e => e.querySelectorAll(".cell").forEach(elem => elem.removeEventListener("click", click)));
     document.querySelector(".won-title").classList.remove("hidden");
     if (name === "gg"){var winner = "It's a draw!";}
-    else if (name === "ch"){var winner = 'Toes won!';}
+    else if (name === "r"){var winner = 'Toes won!';}
     else{var winner = 'Crosses won!';}
     document.querySelector(".won-message").textContent = winner;
     undoButton.disabled = true;
